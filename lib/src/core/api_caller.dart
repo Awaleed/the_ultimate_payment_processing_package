@@ -2,8 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import 'errors/custom_error.dart';
-
 enum RequestMethod { get, post, put, patch, delete }
 
 class ApiCaller {
@@ -30,7 +28,7 @@ class ApiCaller {
         debugPrint(
           ' -> ApiCaller::closing ${cancelToken.requestOptions?.path}',
         );
-        cancelToken.cancel(const CustomError.canceledByUser());
+        cancelToken.cancel('');
       } catch (e) {
         debugPrint(
           ' -> ApiCaller::${cancelToken.requestOptions?.path} closing failed',

@@ -1,9 +1,10 @@
 name: the_ultimate_payment_processing_package
 description: A new Flutter package project.
 version: 0.0.1
-# homepage: null
+homepage: https://github.com/Awaleed/the_ultimate_payment_processing_package
+
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: ">=2.18.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -12,10 +13,12 @@ dependencies:
   dio: ^4.0.6
   flutter:
     sdk: flutter
-  flutter_pay: ^1.0.2
+  flutter_bloc: ^8.1.1
   freezed_annotation: ^2.2.0
+  intl: ^0.17.0
   pretty_dio_logger: ^1.1.1
   supercharged: ^2.1.1
+  webviewx: ^0.2.1
 
 dev_dependencies:
   build_runner: null
@@ -24,14 +27,18 @@ dev_dependencies:
     sdk: flutter
   freezed: null
 
+flutter:
+  assets:
+    - assets/images/
+  plugin:
+    platforms:
+      ios:
+        pluginClass: FlutterPayPlugin
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
-flutter: null
-
+# flutter: null
 # To add assets to your package, add an assets section, like this:
-# assets:
-#   - images/a_dot_burr.jpeg
 #   - images/a_dot_ham.jpeg
 #
 # For details regarding assets in packages, see
