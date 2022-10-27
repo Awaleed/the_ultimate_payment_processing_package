@@ -2,13 +2,13 @@ name: the_ultimate_payment_processing_package
 description: A new Flutter package project.
 version: 0.0.1
 # homepage: null
-
 environment:
   sdk: '>=2.18.2 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   bloc: ^8.1.0
+  collection: ^1.16.0
   dio: ^4.0.6
   flutter:
     sdk: flutter
