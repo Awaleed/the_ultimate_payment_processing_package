@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -62,6 +63,12 @@ class _PaymentPageState extends State<PaymentPage> {
             child: ListView(
               padding: const EdgeInsets.all(20),
               children: [
+                if (Platform.isIOS)
+                  ApplePayButton()
+                else
+                  const Text(
+                    'If platform is IOS ApplePayButton will appear here',
+                  ),
                 ElevatedButton(
                   onPressed: () {
                     controller.pay(

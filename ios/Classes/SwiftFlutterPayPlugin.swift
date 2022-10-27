@@ -11,6 +11,9 @@ public class SwiftFlutterPayPlugin: NSObject, FlutterPlugin {
     let channel = FlutterMethodChannel(name: "flutter_pay", binaryMessenger: registrar.messenger())
     let instance = SwiftFlutterPayPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
+    
+    let buttonFactory = ApplePayButtonViewFactory(messenger: messenger)
+    registrar.register(buttonFactory, withId: ApplePayButtonView.buttonMethodChannelName)
   }
 
     private var flutterResult: FlutterResult?
