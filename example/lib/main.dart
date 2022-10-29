@@ -1,8 +1,6 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:the_ultimate_payment_processing_package/the_ultimate_payment_processing_package.dart';
 
 void main() => runApp(const MyApp());

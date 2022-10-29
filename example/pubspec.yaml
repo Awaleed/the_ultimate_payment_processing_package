@@ -1,5 +1,6 @@
 name: the_ultimate_payment_processing_package_example
 description: Demonstrates how to use the the_ultimate_payment_processing_package plugin.
+version: 1.0.0+1
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
