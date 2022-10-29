@@ -78,25 +78,25 @@ String _mapDioError(DioError error) {
 
 String _mapMoyaserMessage(String rawMessage) {
   if (rawMessage.contains('INSUFFICIENT_FUNDS')) {
-    return kMessages.INSUFFICIENT_FUNDS;
+    return kMessages.insufficientFunds;
   } else if (rawMessage.contains('DECLINED')) {
-    return kMessages.DECLINED;
+    return kMessages.declined;
   } else if (rawMessage.contains('UNSPECIFIED_FAILURE')) {
-    return kMessages.UNSPECIFIED_FAILURE;
+    return kMessages.unspecifiedFailure;
   } else if (rawMessage.contains('EXPIRED_CARD')) {
-    return kMessages.EXPIRED_CARD;
+    return kMessages.expiredCard;
   } else if (rawMessage.contains('TIMED_OUT')) {
-    return kMessages.TIMED_OUT;
+    return kMessages.timedOut;
   } else if (rawMessage.contains('REFERRED')) {
-    return kMessages.REFERRED;
+    return kMessages.referred;
   } else if (rawMessage.contains('AUTHENTICATION_FAILED')) {
-    return kMessages.AUTHENTICATION_FAILED;
+    return kMessages.authenticationFailed;
   } else if (rawMessage.contains('AUTHENTICATION_ATTEMPTED')) {
-    return kMessages.AUTHENTICATION_ATTEMPTED;
+    return kMessages.authenticationAttempted;
   } else if (rawMessage.contains('AUTHENTICATION_NOT_AVAILABLE')) {
-    return kMessages.AUTHENTICATION_NOT_AVAILABLE;
+    return kMessages.authenticationNotAvailable;
   } else if (rawMessage.contains('CARD_NOT_ENROLLED')) {
-    return kMessages.CARD_NOT_ENROLLED;
+    return kMessages.cardNotEnrolled;
   }
 
   return rawMessage;

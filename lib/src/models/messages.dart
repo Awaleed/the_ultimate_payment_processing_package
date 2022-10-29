@@ -10,46 +10,46 @@ abstract class ITheUltimatePaymentProcessingPackageMessages {
   String get cardNumber;
   String get enterAValidNumber;
 
-  String get INSUFFICIENT_FUNDS;
-  String get DECLINED;
-  String get UNSPECIFIED_FAILURE;
-  String get EXPIRED_CARD;
-  String get TIMED_OUT;
-  String get REFERRED;
-  String get AUTHENTICATION_FAILED;
-  String get AUTHENTICATION_ATTEMPTED;
-  String get AUTHENTICATION_NOT_AVAILABLE;
-  String get CARD_NOT_ENROLLED;
+  String get insufficientFunds;
+  String get declined;
+  String get unspecifiedFailure;
+  String get expiredCard;
+  String get timedOut;
+  String get referred;
+  String get authenticationFailed;
+  String get authenticationAttempted;
+  String get authenticationNotAvailable;
+  String get cardNotEnrolled;
 }
 
 class ArabicTheUltimatePaymentProcessingPackageMessages
     extends ITheUltimatePaymentProcessingPackageMessages {
   @override
-  String INSUFFICIENT_FUNDS = 'لا يوجد رصيد كافي في البطاقة';
+  String insufficientFunds = 'لا يوجد رصيد كافي في البطاقة';
   @override
-  String DECLINED = 'عملية مرفوضة من بنك العميل. يجب استخدام بطاقة أخرى';
+  String declined = 'عملية مرفوضة من بنك العميل. يجب استخدام بطاقة أخرى';
   @override
-  String UNSPECIFIED_FAILURE =
+  String unspecifiedFailure =
       'رفض بنك العميل المعاملة لخطأ غير محدد في نظامهم. يجب المحاولة ببطاقة أخرى';
   @override
-  String EXPIRED_CARD = 'البطاقة منتهية';
+  String expiredCard = 'البطاقة منتهية';
   @override
-  String TIMED_OUT =
+  String timedOut =
       'فشل الاتصال مع بنك العميل. يجب علي العميل المحاولة مرة أخرى بوقت لاحق';
   @override
-  String REFERRED =
+  String referred =
       'بنك العميل رفض العملية بسبب وجود مشكلة في البطاقة وعليه مراجعتهم';
   @override
-  String AUTHENTICATION_FAILED =
+  String authenticationFailed =
       'المصادقة غير ناجحة أو تم إلغاءها من حامل البطاقة';
   @override
-  String AUTHENTICATION_ATTEMPTED =
+  String authenticationAttempted =
       'المصادقة فشلت بسبب أن البنك المصدر للبطاقة لم يفعل خدمة التحقق الأمني 3D Secure، أو أن البطاقة غير مدرجة فيها';
   @override
-  String AUTHENTICATION_NOT_AVAILABLE =
+  String authenticationNotAvailable =
       'المصادقة فشلت بسبب أن البنك المصدر للبطاقة لم يفعل خدمة التحقق الأمني 3D Secure، أو أن البطاقة غير مدرجة فيها';
   @override
-  String CARD_NOT_ENROLLED =
+  String cardNotEnrolled =
       'البطاقة غير مدرجة في خدمة التحقق الأمني 3D Secure. أو أن العميل أدخل رقم البطاقة بشكل خاطئ';
 
   @override
@@ -84,34 +84,34 @@ class ArabicTheUltimatePaymentProcessingPackageMessages
 class EnglishTheUltimatePaymentProcessingPackageMessages
     extends ITheUltimatePaymentProcessingPackageMessages {
   @override
-  String INSUFFICIENT_FUNDS =
+  String insufficientFunds =
       'There is no enough amount on the card to complete the transaction';
   @override
-  String DECLINED =
+  String declined =
       'Transaction declined by the customer’s bank. The customer should use an alternate credit card';
   @override
-  String UNSPECIFIED_FAILURE =
+  String unspecifiedFailure =
       'The customer’s bank has declined the transaction for an undefined cause. The customer should use an alternate credit card.';
   @override
-  String EXPIRED_CARD =
+  String expiredCard =
       'The transaction failed as the card appears to have expired.';
   @override
-  String TIMED_OUT =
+  String timedOut =
       'The customer’s bank was unable to be connected. The customer should attempt to process this transaction again.';
   @override
-  String REFERRED =
+  String referred =
       'The customer’s bank has indicated there is a problem with the credit card number.';
   @override
-  String AUTHENTICATION_FAILED =
+  String authenticationFailed =
       'Authentication is unsuccessful or not attempted by the cardholder';
   @override
-  String AUTHENTICATION_ATTEMPTED =
+  String authenticationAttempted =
       'Either cardholder or card issuing bank is not 3D enrolled. 3D card authentication is unsuccessful';
   @override
-  String AUTHENTICATION_NOT_AVAILABLE =
+  String authenticationNotAvailable =
       'Either cardholder or card issuing bank is not 3D enrolled. 3D card authentication is unsuccessful';
   @override
-  String CARD_NOT_ENROLLED =
+  String cardNotEnrolled =
       'The card was not listed by the issuing bank. The buyer needs to communicate with his bank to activate the card for online payment. Or the card number was entered incorrectly by the cardholder';
 
   @override
