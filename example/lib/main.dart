@@ -62,25 +62,25 @@ class _PaymentPageState extends State<PaymentPage> {
               padding: const EdgeInsets.all(20),
               children: [
                 if (Platform.isIOS)
-                  ApplePayButton()
+                  ApplePayButton(
+                    onPressed: () {
+                      controller.pay(
+                        ApplePayPaymentProcessor(
+                          paymentItems: [
+                            PaymentItem(name: 'TEST', price: 100),
+                          ],
+                          moyaserApiKey: moyaserApiKey,
+                          merchantIdentifier: 'merchantIdentifier',
+                          callbackUrl: paymentRetrievalUrl,
+                          description: 'Description',
+                        ),
+                      );
+                    },
+                  )
                 else
                   const Text(
                     'If platform is IOS ApplePayButton will appear here',
                   ),
-                ElevatedButton(
-                  onPressed: () {
-                    controller.pay(
-                      ApplePayPaymentProcessor(
-                        paymentItems: [],
-                        moyaserApiKey: moyaserApiKey,
-                        merchantIdentifier: 'merchantIdentifier',
-                        callbackUrl: paymentRetrievalUrl,
-                        description: 'Description',
-                      ),
-                    );
-                  },
-                  child: const Text('ApplePay'),
-                ),
                 ElevatedButton(
                   onPressed: () {
                     controller.pay(
@@ -102,8 +102,8 @@ class _PaymentPageState extends State<PaymentPage> {
                   child: const Text('Mada'),
                 ),
                 ElevatedButton(
-                  onPressed: () async {
-                    final card = await showDialog<PaymentCard>(
+                  onPressed: () {
+                    showDialog<PaymentCard>(
                       context: context,
                       barrierDismissible: false,
                       builder: (context) {

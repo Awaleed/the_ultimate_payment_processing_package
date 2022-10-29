@@ -33,7 +33,7 @@ flutter:
   plugin:
     platforms:
       ios:
-        pluginClass: FlutterPayPlugin
+        pluginClass: SwiftFlutterPayPlugin
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.

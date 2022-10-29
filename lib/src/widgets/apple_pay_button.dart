@@ -12,6 +12,8 @@
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
@@ -74,13 +76,13 @@ extension on ApplePayButtonType {
 /// ```
 class ApplePayButton extends StatelessWidget {
   /// The default width for the Apple Pay Button.
-  static const double minimumButonWidth = 100;
+  // static const double minimumButonWidth = 100;
 
   /// The default height for the Apple Pay Button.
-  static const double minimumButtonHeight = 30;
+  final double? height;
 
   /// The constraints used to limit the size of the button.
-  final BoxConstraints constraints;
+  // final BoxConstraints? constraints;
 
   /// Called when the button is pressed.
   final VoidCallback? onPressed;
@@ -99,16 +101,17 @@ class ApplePayButton extends StatelessWidget {
     this.onPressed,
     this.style = ApplePayButtonStyle.black,
     this.type = ApplePayButtonType.plain,
-  })  : constraints = BoxConstraints.tightFor(
-          width: type.minimumAssetWidth,
-          height: minimumButtonHeight,
-        ),
-        super(key: key) {
-    assert(constraints.debugAssertIsValid());
+    this.height,
+  }) : super(key: key) {
+    // assert(constraints.debugAssertIsValid());
   }
 
   @override
   Widget build(BuildContext context) {
+    final constraints = BoxConstraints.tightFor(
+      width: type.minimumAssetWidth,
+      height: height ?? Theme.of(context).buttonTheme.height,
+    );
     return ConstrainedBox(
       constraints: constraints,
       child: _platformButton,
