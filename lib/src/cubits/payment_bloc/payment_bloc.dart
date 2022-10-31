@@ -17,6 +17,9 @@ class PaymentBloc extends Bloc<PaymentBlocEvent, PaymentBlocState> {
   PaymentBloc({
     required this.configuration,
   }) : super(const PaymentBlocState.initial()) {
+    apiCaller = ApiCaller(
+      paymentRetrievalHeaders: configuration.paymentRetrievalHeaders,
+    );
     on<PaymentBlocEvent>((event, emit) {
       event.when(
         openUrl: (url) => emit(PaymentBlocState.openUrl(url)),
@@ -39,7 +42,7 @@ class PaymentBloc extends Bloc<PaymentBlocEvent, PaymentBlocState> {
   }
 
   PaymentConfiguration configuration;
-  final apiCaller = ApiCaller();
+  late ApiCaller apiCaller;
 
   Timer? _timer;
 

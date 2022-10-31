@@ -14,7 +14,14 @@ class PaymentController {
     _paymentBloc = paymentBloc;
   }
 
-  String? loadingMessage;
+  VoidCallback? onCancel() => _paymentBloc.state.whenOrNull(
+        checkingPaymentStatus: () => () =>
+            _paymentBloc.add(const PaymentBlocEvent.cancelCheckPaymentStatus()),
+      );
+
+  String? get loadingMsg => _paymentBloc.state.whenOrNull(
+        checkingPaymentStatus: () => 'التحقق من حالة الدفع',
+      );
 
   void pay(
     IPaymentProcessor paymentProcessor, {

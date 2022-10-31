@@ -8,10 +8,12 @@ class PaymentConfiguration {
     required this.paymentRetrievalUrl,
     required this.paymentStatusCheck,
     this.onWebViewLoaded,
+    this.paymentRetrievalHeaders,
     this.paymentRetrievalRequestMethod = RequestMethod.get,
   });
 
   final String paymentRetrievalUrl;
+  final Map<String, dynamic>? paymentRetrievalHeaders;
   final PaymentState Function(dynamic payment) paymentStatusCheck;
   final void Function(
     BuildContext context,

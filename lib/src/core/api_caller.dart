@@ -5,12 +5,16 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 enum RequestMethod { get, post, put, patch, delete }
 
 class ApiCaller {
-  ApiCaller({this.logResponse = false}) {
+  ApiCaller({
+    this.logResponse = false,
+    this.paymentRetrievalHeaders,
+  }) {
     _dio = _configureDioClient();
   }
 
   late Dio _dio;
   final bool logResponse;
+  final Map<String, dynamic>? paymentRetrievalHeaders;
   final cancelTokensList = <CancelToken>[];
 
   void _addNewCancelToken(CancelToken cancelToken) {
@@ -87,10 +91,11 @@ class ApiCaller {
     return (await res).data;
   }
 
-  static Map<String, dynamic> _getHeaders() {
-    return {
+  Map<String, dynamic> _getHeaders() {
+    return <String, dynamic>{
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      if (paymentRetrievalHeaders != null) ...paymentRetrievalHeaders!
     };
   }
 
