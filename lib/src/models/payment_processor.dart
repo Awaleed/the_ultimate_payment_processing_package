@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:dio/dio.dart';
-import 'package:the_ultimate_payment_processing_package/src/packages/flutter_pay/flutter_pay.dart';
 
 import '../cubits/payment_bloc/payment_bloc.dart';
 import '../helpers/m.dart';
+import '../packages/flutter_pay/flutter_pay.dart';
 import 'card.dart';
 import 'payment_model.dart';
 
@@ -126,5 +126,14 @@ class MadaPaymentProcessor implements IPaymentProcessor {
     } catch (e) {
       paymentBloc.add(PaymentBlocEvent.error(e));
     }
+  }
+}
+
+class CODPaymentProcessor implements IPaymentProcessor {
+  CODPaymentProcessor();
+
+  @override
+  Future<void> pay(PaymentBloc paymentBloc) async {
+    paymentBloc.add(const PaymentBlocEvent.paid());
   }
 }

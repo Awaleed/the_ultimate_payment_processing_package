@@ -1,15 +1,15 @@
 part of flutter_pay;
 
 class FlutterPay {
-  final MethodChannel _channel = MethodChannel('flutter_pay');
+  final MethodChannel _channel = const MethodChannel('flutter_pay');
 
   /// Switch Google Pay [environment]
   ///
   /// See [PaymentEnvironment]
   void setEnvironment(
-      {PaymentEnvironment environment = PaymentEnvironment.Test}) {
+      {PaymentEnvironment environment = PaymentEnvironment.test}) {
     var params = <String, bool>{
-      "isTestEnvironment": environment == PaymentEnvironment.Test,
+      "isTestEnvironment": environment == PaymentEnvironment.test,
     };
     _channel.invokeMethod('switchEnvironment', params);
   }
@@ -43,11 +43,11 @@ class FlutterPay {
   /// * [appleParameters] - options for Apple Pay
   /// * [allowedPaymentNetworks] - List of allowed payment networks.
   /// See [PaymentNetwork].
-  /// * [allowedCardAuthMethods] - List of allowed authenticaion methods
+  /// * [allowedCardAuthMethods] - List of allowed authentication methods
   /// methods for Google Pay.
   /// * [paymentItems] - affects only Apple Pay. See [PaymentItem]
   /// * [merchantName] - affects only Google Pay.
-  /// Mercant name which will be displayed to customer.
+  /// Merchant name which will be displayed to customer.
   Future<String> requestPayment({
     GoogleParameters? googleParameters,
     AppleParameters? appleParameters,
@@ -78,25 +78,25 @@ class FlutterPay {
     try {
       var response = await _channel.invokeMethod('requestPayment', params);
       var payResponse = Map<String, String>.from(response);
-      if (payResponse == null) {
-        throw FlutterPayError(description: "Pay response cannot be parsed");
-      }
+      // if (payResponse == null) {
+      // throw FlutterPayError(description: "Pay response cannot be parsed");
+      // }
 
       var paymentToken = payResponse["token"];
       if (paymentToken != null) {
-        print("Payment token: $paymentToken");
+        debugPrint("Payment token: $paymentToken");
         return paymentToken;
       } else {
-        print("Payment token: null");
+        debugPrint("Payment token: null");
         return "";
       }
     } on PlatformException catch (error) {
       if (error.code == "userCancelledError") {
-        print(error.message);
+        debugPrint(error.message);
         return "";
       }
       if (error.code == "paymentError") {
-        print(error.message);
+        debugPrint(error.message);
         return "";
       }
       throw FlutterPayError(code: error.code, description: error.message);

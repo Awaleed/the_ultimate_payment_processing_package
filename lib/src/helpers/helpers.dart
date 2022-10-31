@@ -1,21 +1,36 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart' as intl;
+import 'package:flutter/material.dart';
 
-// abstract class Helpers {
-//   static intl.NumberFormat moneyFormatter =
-//       intl.NumberFormat('#,##0.00', 'en_US');
+import '../../the_ultimate_payment_processing_package.dart';
+import 'm.dart';
 
-//   static void dismissFauces(BuildContext context) {
-//     // FocusScope.of(context).unfocus();
-//     FocusScope.of(context).requestFocus(FocusNode());
-//   }
-
-//   static bool get isArabic => true;
-//   // getIt<ISettingsRepository>().getSettings().languageCode == 'ar';
-
-import 'package:flutter/widgets.dart';
-import 'package:the_ultimate_payment_processing_package/src/helpers/m.dart';
+showPaymentDialog(BuildContext context) => showDialog<PaymentCard>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          title: Row(
+            children: [
+              const Expanded(child: Text('تأكيد الدفع')),
+              IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(Icons.close),
+              )
+            ],
+          ),
+          contentPadding: const EdgeInsets.all(8),
+          content: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: CardInput(
+              buttonText: 'Confirm payment ',
+              card: PaymentCard.empty(),
+              onValidated: (value) => Navigator.of(context).pop(value),
+            ),
+          ),
+        );
+      },
+    );
 
 void handelMoyaserWebView(
   BuildContext context, {

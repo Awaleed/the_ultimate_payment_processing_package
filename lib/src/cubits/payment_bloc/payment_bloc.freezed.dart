@@ -141,15 +141,23 @@ class __$$_PayEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PayEvent extends _PayEvent {
+class _$_PayEvent extends _PayEvent with DiagnosticableTreeMixin {
   const _$_PayEvent(this.paymentProcessor) : super._();
 
   @override
   final IPaymentProcessor paymentProcessor;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.pay(paymentProcessor: $paymentProcessor)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PaymentBlocEvent.pay'))
+      ..add(DiagnosticsProperty('paymentProcessor', paymentProcessor));
   }
 
   @override
@@ -296,12 +304,20 @@ class __$$_CheckPaymentStatusEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckPaymentStatusEvent extends _CheckPaymentStatusEvent {
+class _$_CheckPaymentStatusEvent extends _CheckPaymentStatusEvent
+    with DiagnosticableTreeMixin {
   const _$_CheckPaymentStatusEvent() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.checkPaymentStatus()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'PaymentBlocEvent.checkPaymentStatus'));
   }
 
   @override
@@ -437,12 +453,20 @@ class __$$_CancelCheckPaymentStatusEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CancelCheckPaymentStatusEvent extends _CancelCheckPaymentStatusEvent {
+class _$_CancelCheckPaymentStatusEvent extends _CancelCheckPaymentStatusEvent
+    with DiagnosticableTreeMixin {
   const _$_CancelCheckPaymentStatusEvent() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.cancelCheckPaymentStatus()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'PaymentBlocEvent.cancelCheckPaymentStatus'));
   }
 
   @override
@@ -591,15 +615,23 @@ class __$$_OpenUrlEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OpenUrlEvent extends _OpenUrlEvent {
+class _$_OpenUrlEvent extends _OpenUrlEvent with DiagnosticableTreeMixin {
   const _$_OpenUrlEvent(this.url) : super._();
 
   @override
   final String url;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.openUrl(url: $url)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PaymentBlocEvent.openUrl'))
+      ..add(DiagnosticsProperty('url', url));
   }
 
   @override
@@ -759,15 +791,23 @@ class __$$_ErrorEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorEvent extends _ErrorEvent {
+class _$_ErrorEvent extends _ErrorEvent with DiagnosticableTreeMixin {
   const _$_ErrorEvent(this.error) : super._();
 
   @override
   final dynamic error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.error(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PaymentBlocEvent.error'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -913,12 +953,18 @@ class __$$_PaidEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaidEvent extends _PaidEvent {
+class _$_PaidEvent extends _PaidEvent with DiagnosticableTreeMixin {
   const _$_PaidEvent() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.paid()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PaymentBlocEvent.paid'));
   }
 
   @override
@@ -1050,12 +1096,18 @@ class __$$_LoadingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadingEvent extends _LoadingEvent {
+class _$_LoadingEvent extends _LoadingEvent with DiagnosticableTreeMixin {
   const _$_LoadingEvent() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocEvent.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PaymentBlocEvent.loading'));
   }
 
   @override
@@ -1272,12 +1324,18 @@ class __$$_InitialStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InitialState extends _InitialState {
+class _$_InitialState extends _InitialState with DiagnosticableTreeMixin {
   const _$_InitialState() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PaymentBlocState.initial'));
   }
 
   @override
@@ -1400,12 +1458,18 @@ class __$$_LoadingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadingState extends _LoadingState {
+class _$_LoadingState extends _LoadingState with DiagnosticableTreeMixin {
   const _$_LoadingState() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PaymentBlocState.loading'));
   }
 
   @override
@@ -1528,12 +1592,18 @@ class __$$_PaidStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaidState extends _PaidState {
+class _$_PaidState extends _PaidState with DiagnosticableTreeMixin {
   const _$_PaidState() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocState.paid()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'PaymentBlocState.paid'));
   }
 
   @override
@@ -1671,15 +1741,23 @@ class __$$_OpenUrlStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OpenUrlState extends _OpenUrlState {
+class _$_OpenUrlState extends _OpenUrlState with DiagnosticableTreeMixin {
   const _$_OpenUrlState(this.url) : super._();
 
   @override
   final String url;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocState.openUrl(url: $url)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PaymentBlocState.openUrl'))
+      ..add(DiagnosticsProperty('url', url));
   }
 
   @override
@@ -1817,12 +1895,20 @@ class __$$_CheckingPaymentStatusStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckingPaymentStatusState extends _CheckingPaymentStatusState {
+class _$_CheckingPaymentStatusState extends _CheckingPaymentStatusState
+    with DiagnosticableTreeMixin {
   const _$_CheckingPaymentStatusState() : super._();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocState.checkingPaymentStatus()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'PaymentBlocState.checkingPaymentStatus'));
   }
 
   @override
@@ -1961,15 +2047,23 @@ class __$$_FailureStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FailureState extends _FailureState {
+class _$_FailureState extends _FailureState with DiagnosticableTreeMixin {
   const _$_FailureState(this.error) : super._();
 
   @override
   final String error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'PaymentBlocState.failure(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'PaymentBlocState.failure'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override

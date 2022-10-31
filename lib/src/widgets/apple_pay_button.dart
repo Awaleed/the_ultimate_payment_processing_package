@@ -13,9 +13,7 @@
 /// limitations under the License.
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 /// The types of button supported on Apple Pay.
 ///
@@ -76,7 +74,7 @@ extension on ApplePayButtonType {
 /// ```
 class ApplePayButton extends StatelessWidget {
   /// The default width for the Apple Pay Button.
-  // static const double minimumButonWidth = 100;
+  // static const double minimumButtonWidth = 100;
 
   /// The default height for the Apple Pay Button.
   final double? height;
@@ -91,7 +89,7 @@ class ApplePayButton extends StatelessWidget {
   /// scheme of the application.
   final ApplePayButtonStyle style;
 
-  /// The tyoe of button depending on the activity initiated with the payment
+  /// The type of button depending on the activity initiated with the payment
   /// transaction.
   final ApplePayButtonType type;
 
@@ -118,7 +116,7 @@ class ApplePayButton extends StatelessWidget {
     );
   }
 
-  /// Wrapper method to deliver the button only to applitcations running on iOS.
+  /// Wrapper method to deliver the button only to applications running on iOS.
   Widget get _platformButton {
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
@@ -136,16 +134,15 @@ class ApplePayButton extends StatelessWidget {
   static bool get supported => defaultTargetPlatform == TargetPlatform.iOS;
 }
 
-/// A widget to draw the Apple Pay button through a [PlatforView].
+/// A widget to draw the Apple Pay button through a [PlatformView].
 class _UiKitApplePayButton extends StatelessWidget {
   static const buttonId = 'plugins.flutter.io/pay/apple_pay_button';
-  late final MethodChannel? methodChannel;
 
   final VoidCallback? onPressed;
   final ApplePayButtonStyle style;
   final ApplePayButtonType type;
 
-  _UiKitApplePayButton({
+  const _UiKitApplePayButton({
     Key? key,
     this.onPressed,
     this.style = ApplePayButtonStyle.black,
@@ -159,8 +156,8 @@ class _UiKitApplePayButton extends StatelessWidget {
       creationParamsCodec: const StandardMessageCodec(),
       creationParams: {'style': style.enumString, 'type': type.enumString},
       onPlatformViewCreated: (viewId) {
-        methodChannel = MethodChannel('$buttonId/$viewId');
-        methodChannel?.setMethodCallHandler((call) async {
+        final methodChannel = MethodChannel('$buttonId/$viewId');
+        methodChannel.setMethodCallHandler((call) async {
           if (call.method == 'onPressed') onPressed?.call();
           return;
         });
