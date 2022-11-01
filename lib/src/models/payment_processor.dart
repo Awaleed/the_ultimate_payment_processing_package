@@ -40,6 +40,8 @@ class ApplePayPaymentProcessor implements IPaymentProcessor {
       paymentBloc.add(const PaymentBlocEvent.loading());
       FlutterPay flutterPay = FlutterPay();
 
+      flutterPay.setEnvironment(environment: PaymentEnvironment.production);
+
       String token = await flutterPay.requestPayment(
         appleParameters: AppleParameters(
           merchantIdentifier: merchantIdentifier,
